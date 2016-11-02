@@ -1,0 +1,359 @@
+object SalesInvoiceForm: TSalesInvoiceForm
+  Left = 0
+  Top = 0
+  Caption = 'Sales Invoice'
+  ClientHeight = 806
+  ClientWidth = 470
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object GroupBoxCustomerDetails: TGroupBox
+    Align = Top
+    Locked = True
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 90.000000000000000000
+    Size.Width = 430.000000000000000000
+    Size.Height = 128.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'dummy_Customer_Details'
+    TabOrder = 1
+    object LabelCustomer: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 24.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Customer'
+    end
+    object PopupBoxCustomer: TPopupBox
+      Position.X = 168.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      OnChange = PopupBoxCustomerChange
+    end
+    object LabelDiscountRate: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 24.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Discount_Rate'
+    end
+    object LabelDiscountRateFigure: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 168.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Discount_Rate_Figure'
+    end
+    object LabelTotalBalanceBig: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 168.000000000000000000
+      Position.Y = 88.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Outstanding_Balance_Figure'
+    end
+    object LabelOutstandingBalance: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 24.000000000000000000
+      Position.Y = 88.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Outstanding_Balance'
+    end
+  end
+  object LabelInvoiceBalance: TLabel
+    Align = Horizontal
+    StyledSettings = [Family, FontColor]
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 430.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 96.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.HorzAlign = Trailing
+    Text = 'dummy_Invoice_Balance_Figure_Big'
+  end
+  object GroupBoxInvoiceItems: TGroupBox
+    Align = Horizontal
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 344.000000000000000000
+    Size.Width = 430.000000000000000000
+    Size.Height = 250.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'dummy_Invoice_Items'
+    TabOrder = 3
+    object PopupBoxItems: TPopupBox
+      Position.X = 112.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 281.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+    object LabelItem: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 24.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Item'
+    end
+    object LabelQuantity: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 24.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Quantity'
+    end
+    object EditQuantity: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 3
+      Position.X = 112.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object ButtonAddItem: TButton
+      Position.X = 312.000000000000000000
+      Position.Y = 56.000000000000000000
+      TabOrder = 4
+      Text = 'dummy_Add_Item'
+      OnClick = ButtonAddItemClick
+    end
+    object StringGridItems: TStringGrid
+      Align = Horizontal
+      Margins.Left = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      PopupMenu = PopupMenuItems
+      Position.X = 20.000000000000000000
+      Position.Y = 93.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 140.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header]
+      RowCount = 100
+      RowHeight = 21.000000000000000000
+      Viewport.Width = 370.000000000000000000
+      Viewport.Height = 115.000000000000000000
+      object StringColumn1: TStringColumn
+        Header = 'dummy_Item'
+        Size.Width = 124.000000000000000000
+        Size.Height = 126.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+      object StringColumn2: TStringColumn
+        Header = 'dummy_Quantity'
+        Position.X = 124.000000000000000000
+        Size.Width = 60.000000000000000000
+        Size.Height = 126.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+      end
+      object StringColumn3: TStringColumn
+        Header = 'dummy_Unit_Price'
+        Position.X = 184.000000000000000000
+        Size.Width = 70.000000000000000000
+        Size.Height = 126.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+      end
+      object StringColumn4: TStringColumn
+        Header = 'dummy_Amount'
+        Position.X = 254.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 126.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+      end
+      object StringColumn5: TStringColumn
+        Position.X = 354.000000000000000000
+        Size.Width = 10.000000000000000000
+        Size.Height = 126.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        Visible = False
+      end
+    end
+  end
+  object GroupBoxBalance: TGroupBox
+    Align = Horizontal
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 600.000000000000000000
+    Size.Width = 430.000000000000000000
+    Size.Height = 137.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'dummy_Balance'
+    TabOrder = 4
+    object LabelRunningBalance: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 160.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.HorzAlign = Trailing
+      Text = 'dummy_Invoice_Balance_Figure'
+    end
+    object LabelInvBalance: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 16.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      Text = 'dummy_Invoice_Balance_Text'
+    end
+    object CheckBoxDiscount: TCheckBox
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 16.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 129.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'dummy_Discount'
+      TextSettings.Font.Size = 14.000000000000000000
+      OnChange = CheckBoxDiscountChange
+    end
+    object LabelDiscount: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 160.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.HorzAlign = Trailing
+      Text = 'dummy_Discount_Figure'
+    end
+    object LineHorizontal: TLine
+      LineType = Diagonal
+      Position.X = 128.000000000000000000
+      Position.Y = 88.000000000000000000
+      Size.Width = 265.000000000000000000
+      Size.Height = 1.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object LabelTotalBalance: TLabel
+      StyledSettings = [Family, FontColor]
+      Position.X = 184.000000000000000000
+      Position.Y = 96.000000000000000000
+      Size.Width = 201.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Style = [fsBold]
+      TextSettings.HorzAlign = Trailing
+      Text = 'dummy_Invoice_Balance_Figure_Small'
+    end
+    object LabelTotal: TLabel
+      StyledSettings = [Family, FontColor]
+      Position.X = 128.000000000000000000
+      Position.Y = 96.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.Font.Style = [fsBold]
+      Text = 'dummy_Total'
+    end
+  end
+  object ButtonCancel: TButton
+    Position.X = 368.000000000000000000
+    Position.Y = 744.000000000000000000
+    TabOrder = 6
+    Text = 'dummy_Cancel'
+    OnClick = ButtonCancelClick
+  end
+  object ButtonPrintInvoice: TButton
+    Position.X = 24.000000000000000000
+    Position.Y = 744.000000000000000000
+    Size.Width = 105.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Text = 'dummy_Print_Invoice'
+    OnClick = ButtonPrintInvoiceClick
+  end
+  object AniIndicatorProgress: TAniIndicator
+    Enabled = True
+    Position.X = 24.000000000000000000
+    Position.Y = 776.000000000000000000
+    Size.Width = 24.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object LabelPrinting: TLabel
+    Position.X = 48.000000000000000000
+    Position.Y = 776.000000000000000000
+    Size.Width = 305.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'dummy_Printing_Invoice'
+  end
+  object LabelTitle: TLabel
+    Align = Top
+    StyledSettings = [Family, FontColor]
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 20.000000000000000000
+    Size.Width = 430.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.HorzAlign = Center
+    Text = 'dummy_Title'
+  end
+  object PopupMenuItems: TPopupMenu
+    Left = 440
+    Top = 576
+    object MenuItemDeleteItem: TMenuItem
+      Text = 'Delete Entry'
+      OnClick = MenuItemDeleteItemClick
+    end
+  end
+end

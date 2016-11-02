@@ -1,0 +1,62 @@
+object MainForm: TMainForm
+  Left = 0
+  Top = 0
+  Caption = 'POSApp'
+  ClientHeight = 260
+  ClientWidth = 360
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object LabelTitle: TLabel
+    Align = Top
+    StyledSettings = [Family, FontColor]
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Position.X = 20.000000000000000000
+    Position.Y = 20.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.HorzAlign = Center
+    Text = 'dummy_Title'
+  end
+  object ButtonInvoice: TButton
+    Position.X = 96.000000000000000000
+    Position.Y = 93.000000000000000000
+    Size.Width = 167.000000000000000000
+    Size.Height = 76.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'dummy_IssueButton'
+    OnClick = ButtonInvoiceClick
+  end
+  object LabelTotalSalesText: TLabel
+    StyledSettings = [Family, FontColor]
+    Position.X = 16.000000000000000000
+    Position.Y = 200.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 22.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    Text = 'dummy_TotalSales'
+  end
+  object LabelTotalSalesFigure: TLabel
+    StyledSettings = [Family]
+    Position.X = 168.000000000000000000
+    Position.Y = 200.000000000000000000
+    Size.Width = 169.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 22.000000000000000000
+    TextSettings.Font.Style = [fsBold]
+    TextSettings.FontColor = claGreen
+    TextSettings.HorzAlign = Trailing
+    Text = 'dummy_Sales'
+  end
+end

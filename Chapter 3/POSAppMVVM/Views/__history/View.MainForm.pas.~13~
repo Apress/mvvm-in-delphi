@@ -1,0 +1,107 @@
+unit View.MainForm;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Controls.Presentation, ViewModel.Main, Model.Main, Model.ProSu.Interfaces;
+
+type
+  TMainForm = class(TForm)
+    LabelTitle: TLabel;
+    ButtonInvoice: TButton;
+    LabelTotalSalesText: TLabel;
+    LabelTotalSalesFigure: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure ButtonInvoiceClick(Sender: TObject);
+  private
+    fViewModel: TMainViewModel;
+    fSubscriber: ISubscriberInterface;
+    procedure SetViewModel (const newViewModel: TMainViewModel);
+    procedure NotificationFromProvider (const notifyClass: INotificationClass);
+    procedure UpdateLabels;
+    procedure UpdateTotalSalesFigure;
+  public
+    property ViewModel: TMainViewModel read fViewModel write SetViewModel;
+  end;
+
+var
+  MainForm: TMainForm;
+
+implementation
+
+{$R *.fmx}
+
+uses View.TestPrintInvoice, Model.ProSu.Subscriber, Model.Declarations,
+  Model.ProSu.InterfaceActions;
+
+{ TMainForm }
+
+procedure TMainForm.ButtonInvoiceClick(Sender: TObject);
+var
+  tmpTest: TTestPrintInvoiceForm;
+begin
+  tmpTest:=TTestPrintInvoiceForm.Create(self);
+  tmpTest.Provider.Subscribe(fSubscriber);
+  tmpTest.Show;
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+var
+  mainModel: TMainModel;
+begin
+  mainModel:=TMainModel.Create;
+  fViewModel:=TMainViewModel.Create;
+  fViewModel.Model:=mainModel;
+  ViewModel:=fViewModel;
+  fSubscriber:=TProSuSubscriber.Create;
+  fSubscriber.SetUpdateSubscriberMethod(NotificationFromProvider);
+end;
+
+procedure TMainForm.FormDestroy(Sender: TObject);
+begin
+  fViewModel.Free;
+end;
+
+procedure TMainForm.NotificationFromProvider(
+  const notifyClass: INotificationClass);
+var
+  tmpNotifClass: TNotificationClass;
+begin
+  if notifyClass is TNotificationClass then
+  begin
+    tmpNotifClass:=notifyClass as TNotificationClass;
+    if actUpdateTotalSalesFigure in tmpNotifClass.Actions then
+      LabelTotalSalesFigure.Text:=format('%10.2f',[tmpNotifClass.ActionValue]);
+    tmpNotifClass.Free;
+  end;
+end;
+
+procedure TMainForm.UpdateLabels;
+begin
+  if not Assigned(fViewModel) then
+    Exit;
+  LabelTitle.Text := fViewModel.LabelsText.Title;
+  LabelTotalSalesText.Text := fViewModel.LabelsText.TotalSalesText;
+  LabelTotalSalesFigure.Text := fViewModel.LabelsText.TotalSalesEmptyText;
+end;
+
+procedure TMainForm.UpdateTotalSalesFigure;
+begin
+  if not Assigned(fViewModel) then
+    Exit;
+  ButtonInvoice.Text := fViewModel.LabelsText.IssueButtonCaption;
+end;
+
+procedure TMainForm.SetViewModel(const newViewModel: TMainViewModel);
+begin
+  fViewModel:=newViewModel;
+  if not Assigned(fViewModel) then
+    Exit;
+  UpdateLabels;
+  UpdateTotalSalesFigure;
+end;
+
+end.

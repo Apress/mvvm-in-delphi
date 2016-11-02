@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9562C888-862B-47F1-92A0-D8DF901189A4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="POSApp.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="POSApp">
+        <MSBuild Projects="POSApp.dproj"/>
+    </Target>
+    <Target Name="POSApp:Clean">
+        <MSBuild Projects="POSApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="POSApp:Make">
+        <MSBuild Projects="POSApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="POSApp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="POSApp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="POSApp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

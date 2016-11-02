@@ -1,0 +1,15 @@
+unit Model.Main;
+
+interface
+
+uses Model.Declarations;
+
+type
+  TMainModel = class
+  private
+
+  end;
+
+implementation
+
+end.

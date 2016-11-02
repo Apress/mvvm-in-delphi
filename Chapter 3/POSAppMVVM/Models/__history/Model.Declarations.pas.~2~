@@ -1,0 +1,56 @@
+unit Model.Declarations;
+
+interface
+
+type
+  TCustomer = class
+  private
+    fID: Integer;
+    fName: string;
+    fDiscountRate: Double;
+    fBalance: Currency;
+  public
+    property ID: integer read fID write fID;
+    property Name: string read fName write fName;
+    property DiscountRate: double read fDiscountRate write fDiscountRate;
+    property Balance: Currency read fBalance write fBalance;
+  end;
+
+  TItem = class
+  private
+    fID: Integer;
+    fDescription: string;
+    fPrice: Currency;
+  public
+    property ID: integer read fID write fID;
+    property Description: string read fDescription write fDescription;
+    property Price: Currency read fPrice write fPrice;
+  end;
+
+  TInvoice = class
+  private
+    fID: integer;
+    fNumber: integer;
+  public
+    property ID: Integer read fID write fID;
+    property Number: Integer read fNumber write fNumber;
+  end;
+TInvoiceItem = class
+  private
+    fID: integer;
+    fInvoiceID: integer;
+    fItemID: integer;
+    fUnitPrice: Currency;
+    fQuantity: integer;
+  public
+    property ID: integer read fID write fID;
+    property InvoiceID: integer read fInvoiceID write fInvoiceID;
+    property ItemID: integer read fItemID write fItemID;
+    property UnitPrice: Currency read fUnitPrice write fUnitPrice;
+    property Quantity: Integer read fQuantity write fQuantity;
+  end;
+
+implementation
+
+end.
+

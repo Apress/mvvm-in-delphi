@@ -1,0 +1,50 @@
+unit Model.Main;
+
+interface
+
+uses Model.Declarations, Model.Database;
+
+type
+  TMainModel = class
+  private
+    fMainFormLabelsText: TMainFormLabelsText;
+    fDatabase: TDatabase;
+  public
+    function GetMainFormLabelsText: TMainFormLabelsText;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+uses
+  System.SysUtils;
+
+{ TMainModel }
+
+constructor TMainModel.Create;
+begin
+  fMainFormLabelsText.Title:='';
+  fMainFormLabelsText.IssueButtonCaption:='';
+  fMainFormLabelsText.TotalSalesText:='';
+  fMainFormLabelsText.TotalSalesEmptyText:='0';
+
+  fDatabase:=TDatabase.Create;
+end;
+
+destructor TMainModel.Destroy;
+begin
+  fDatabase.Free;
+  inherited;
+end;
+
+function TMainModel.GetMainFormLabelsText: TMainFormLabelsText;
+begin
+  fMainFormLabelsText.Title:='Main Screen';
+  fMainFormLabelsText.IssueButtonCaption:='Issue Invoice';
+  fMainFormLabelsText.TotalSalesText:='Total Sales:';
+  fMainFormLabelsText.TotalSalesEmptyText:=
+    Format('%10.2f',[fDatabase.GetTotalSales]);
+end;
+
+end.

@@ -1,0 +1,39 @@
+unit ViewModel.Main;
+
+interface
+
+uses Model.Main, Model.Declarations;
+
+type
+  TMainViewModel = class
+  private
+    fModel: TMainModel;
+    fLabelsText: TMainFormLabelsText;
+    fTotalSalesValue: Currency;
+    procedure SetModel (const newModel: TMainModel);
+    function GetLabelsText: TMainFormLabelsText;
+  public
+    property Model: TMainModel read fModel write SetModel;
+    property LabelsText: TMainFormLabelsText read GetlabelsText;
+    function GetTotalSalesValue: string;
+  end;
+implementation
+
+{ TMainViewModel }
+
+function TMainViewModel.GetLabelsText: TMainFormLabelsText;
+begin
+
+end;
+
+function TMainViewModel.GetTotalSalesValue: string;
+begin
+
+end;
+
+procedure TMainViewModel.SetModel(const newModel: TMainModel);
+begin
+
+end;
+
+end.

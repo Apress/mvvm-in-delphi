@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F0830607-CEE2-4F6D-9251-4E422F2EAA71}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="POSAppMVVMUserInteraction.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="POSAppMVVMUserInteraction">
+        <MSBuild Projects="POSAppMVVMUserInteraction.dproj"/>
+    </Target>
+    <Target Name="POSAppMVVMUserInteraction:Clean">
+        <MSBuild Projects="POSAppMVVMUserInteraction.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="POSAppMVVMUserInteraction:Make">
+        <MSBuild Projects="POSAppMVVMUserInteraction.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="POSAppMVVMUserInteraction"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="POSAppMVVMUserInteraction:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="POSAppMVVMUserInteraction:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

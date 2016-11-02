@@ -1,0 +1,20 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Test Print Invoice'
+  ClientHeight = 144
+  ClientWidth = 274
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object ButtonPrintInvoice: TButton
+    Position.X = 40.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 193.000000000000000000
+    Size.Height = 65.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Print Invoice'
+  end
+end

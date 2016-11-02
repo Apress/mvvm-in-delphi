@@ -1,0 +1,36 @@
+unit Model.Main;
+
+interface
+
+uses Model.Declarations;
+
+type
+  TMainModel = class
+  private
+    fMainFormLabelsText: TMainFormLabelsText;
+  public
+    function GetMainFormLabelsText: TMainFormLabelsText;
+    constructor Create;
+  end;
+
+implementation
+
+{ TMainModel }
+
+constructor TMainModel.Create;
+begin
+  fMainFormLabelsText.Title:='';
+  fMainFormLabelsText.IssueButtonCaption:='';
+  fMainFormLabelsText.TotalSalesText:='';
+  fMainFormLabelsText.TotalSalesEmptyText:='0';
+end;
+
+function TMainModel.GetMainFormLabelsText: TMainFormLabelsText;
+begin
+  fMainFormLabelsText.Title:='Main Screen';
+  fMainFormLabelsText.IssueButtonCaption:='Issue Invoice';
+  fMainFormLabelsText.TotalSalesText:='Total Sales:';
+  fMainFormLabelsText.TotalSalesEmptyText:='0';
+end;
+
+end.

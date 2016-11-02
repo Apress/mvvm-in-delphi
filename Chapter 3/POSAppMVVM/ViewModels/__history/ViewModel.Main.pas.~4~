@@ -1,0 +1,55 @@
+unit ViewModel.Main;
+
+interface
+
+uses Model.Main, Model.Declarations;
+
+type
+  TMainViewModel = class
+  private
+    fModel: TMainModel;
+    fLabelsText: TMainFormLabelsText;
+    fTotalSalesValue: Currency;
+    procedure SetModel (const newModel: TMainModel);
+    function GetLabelsText: TMainFormLabelsText;
+  public
+    property Model: TMainModel read fModel write SetModel;
+    property LabelsText: TMainFormLabelsText read GetlabelsText;
+    function GetTotalSalesValue: string;
+  end;
+implementation
+
+uses
+  System.SysUtils;
+
+{ TMainViewModel }
+
+function TMainViewModel.GetLabelsText: TMainFormLabelsText;
+begin
+  if not Assigned(fModel) then
+  begin
+    fLabelsText.Title:='';
+    fLabelsText.IssueButtonCaption:='';
+    fLabelsText.TotalSalesText:='';
+    fLabelsText.TotalSalesEmptyText:=Format('%10.2f',[0.00]);
+  end
+  else
+    fLabelsText:=fModel.GetMainFormLabelsText;
+  result:=fLabelsText;
+end;
+
+function TMainViewModel.GetTotalSalesValue: string;
+begin
+  if not Assigned(fModel) then
+    fTotalSalesValue:=0.00
+  else
+    fTotalSalesValue:=fModel.GetTotalSales;
+  result:=Format('%10.2f',[fTotalSalesValue]);
+end;
+
+procedure TMainViewModel.SetModel(const newModel: TMainModel);
+begin
+
+end;
+
+end.

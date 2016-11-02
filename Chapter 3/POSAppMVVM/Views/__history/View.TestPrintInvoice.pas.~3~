@@ -1,0 +1,34 @@
+unit View.TestPrintInvoice;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, Model.ProSu.Interfaces;
+
+type
+  TTestPrintInvoiceForm = class(TForm)
+    ButtonPrintInvoice: TButton;
+    procedure FormCreate(Sender: TObject);
+  private
+    fProvider: IProviderInterface;
+  public
+    { Public declarations }
+  end;
+
+var
+  TestPrintInvoiceForm: TTestPrintInvoiceForm;
+
+implementation
+
+{$R *.fmx}
+
+uses Model.ProSu.Provider;
+
+procedure TTestPrintInvoiceForm.FormCreate(Sender: TObject);
+begin
+  fProvider:=TProSuProvider.Create;
+end;
+
+end.
